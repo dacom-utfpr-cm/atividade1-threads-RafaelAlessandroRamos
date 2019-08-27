@@ -14,12 +14,27 @@ import javax.swing.JOptionPane;
  */
 public class Main implements Runnable {
 
+    public static boolean isNumeric(String strNum) {
+        return strNum.matches("-?\\d+(\\.\\d+)?");
+    }
+
     @Override
     public void run() {
-        float a = Float.parseFloat(JOptionPane.showInputDialog("Informe um numero: "));
-        float b = Float.parseFloat(JOptionPane.showInputDialog("Informe outro numero: "));
-        float c = a + b;
-        JOptionPane.showMessageDialog(null, a + " + " + b + " = " + c);
+        while(true){
+            System.out.println("Starting thread...");
+            String a = JOptionPane.showInputDialog("Informe uma sequencia numerica arbitraria: ");
+            if(isNumeric(a)){
+                int soma = 0;
+                for(int i = 0; i < a.length(); i++){
+                    soma += Character.getNumericValue(a.charAt(i));
+                }
+                JOptionPane.showMessageDialog(null, "Soma = " + soma);
+                System.out.println("Ending thread...");
+                break;
+            } else{
+                JOptionPane.showMessageDialog(null, "Sequencia não é numérica!!");
+            }
+        }
     }
     
     public static void main(String[] args) {
