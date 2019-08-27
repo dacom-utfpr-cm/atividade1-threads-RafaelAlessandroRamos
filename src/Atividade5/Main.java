@@ -29,7 +29,7 @@ public class Main implements Runnable {
                     soma += Character.getNumericValue(a.charAt(i));
                 }
                 JOptionPane.showMessageDialog(null, "Soma = " + soma);
-                System.out.println("Ending thread...");
+                System.out.println("Stop thread...");
                 break;
             } else{
                 JOptionPane.showMessageDialog(null, "Sequencia não é numérica!!");
